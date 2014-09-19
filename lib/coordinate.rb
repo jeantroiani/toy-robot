@@ -5,7 +5,7 @@ class Coordinate
   attr_reader :x, :y
 
   def initialize(x, y)
-    raise 'Out of Bounds' if is_out_of_bounds?(x) || is_out_of_bounds?(y)
+    raise 'Out of Bounds' if is_out_of_bounds?(x, y)
     @x = x
     @y = y
   end
@@ -25,7 +25,11 @@ class Coordinate
   end
 
   private
-  def is_out_of_bounds?(coordinate)
+  def is_out_of_bounds?(*coordinates)
+    coordinates.any?{ |coordinate| is_invalid?(coordinate) }
+  end
+
+  def is_invalid?(coordinate)
     coordinate < MINIMUM || coordinate > MAXIMUM 
   end
 end

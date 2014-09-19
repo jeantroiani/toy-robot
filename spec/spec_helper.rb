@@ -2,8 +2,8 @@ ENV['CODECLIMATE_REPO_TOKEN'] = "949c67db423a77a0100c6682d336641fc0c61461d4116d5
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
-require 'square'
 require 'coordinate'
+require 'robot'
 
 RSpec.configure do |config|
 

@@ -1,4 +1,7 @@
 # Toy Robot
+[![Code Climate](https://codeclimate.com/github/yoshdog/toy-robot/badges/gpa.svg)](https://codeclimate.com/github/yoshdog/toy-robot)
+[![Test Coverage](https://codeclimate.com/github/yoshdog/toy-robot/badges/coverage.svg)](https://codeclimate.com/github/yoshdog/toy-robot)
+
 ## Objectives
 * The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
 * There are no other obstructions on the table surface.

@@ -6,8 +6,7 @@ class Coordinate
 
   def initialize(x, y)
     raise 'Out of Bounds' if is_out_of_bounds?(x, y)
-    @x = x
-    @y = y
+    @x, @y = x, y
   end
 
   def to_s

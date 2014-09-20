@@ -27,12 +27,37 @@ class Coordinate
     @y = y
   end
 
+  def change_towards direction
+    axis, amount = MOVEMENT_MAP[direction.to_sym]
+    execute_movement_on axis, amount
+  end
+
   private
+  MOVEMENT_MAP = {
+    :NORTH => [:y, 1],
+    :SOUTH => [:y, -1],
+    :EAST => [:x, 1],
+    :WEST => [:x, -1]
+  }
+
   def is_out_of_bounds?(*coordinates)
     coordinates.any?{ |coordinate| is_invalid?(coordinate) }
   end
 
   def is_invalid?(coordinate)
     coordinate < MINIMUM || coordinate > MAXIMUM 
+  end
+
+  def execute_movement_on axis, amount
+    amount += current_value_of axis
+    self.send(setter_of(axis), amount)
+  end
+
+  def setter_of axis
+    (axis.to_s + "=").to_sym
+  end
+
+  def current_value_of axis
+    instance_variable_get("@#{axis}")
   end
 end

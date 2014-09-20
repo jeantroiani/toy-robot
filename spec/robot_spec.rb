@@ -23,6 +23,10 @@ describe Robot do
       expect{ robot.right }.to raise_error(RuntimeError)
     end
 
+    it 'should raise an error if asked to move' do
+      expect{ robot.move }.to raise_error(RuntimeError)
+    end
+
   end
 
   context 'that is placed' do
@@ -60,6 +64,13 @@ describe Robot do
         expect(direction).to receive(:turn).with('right')
         robot.right
       end      
+    end
+
+    context '#move' do
+      it 'should tell the coordinate to change_towards the direction' do
+        expect(coordinate).to receive(:change_towards).with(direction)
+        robot.move
+      end
     end
   end
 

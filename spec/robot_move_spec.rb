@@ -11,7 +11,7 @@ describe 'Moving the robot' do
   end
 
   it 'should ask for the direction' do
-    expect(direction).to receive(:to_s)
+    expect(direction).to receive(:to_sym)
     robot.move
   end
 
@@ -22,36 +22,36 @@ describe 'Moving the robot' do
 
   context 'and facing north' do
     it 'should move the robot +1 on the y-axis' do
-      allow(direction).to receive(:to_s).and_return('NORTH')
+      allow(direction).to receive(:to_sym).and_return(:NORTH)
       allow(direction).to receive(:to_a).and_return(['NORTH'])
       robot.move
-      expect(robot.status).to eq [1,2,'NORTH']
+      expect(robot.report).to eq "1,2,NORTH"
     end
   end
 
   context 'and facing west' do
     it 'should move the robot -1 on the x-axis' do
-      allow(direction).to receive(:to_s).and_return('WEST')
+      allow(direction).to receive(:to_sym).and_return(:WEST)
       allow(direction).to receive(:to_a).and_return(['WEST'])
       robot.move
-      expect(robot.status).to eq [0,1,'WEST']
+      expect(robot.report).to eq "0,1,WEST"
     end
   end
 
   context 'and facing south' do
     it 'should move the robot -1 on the y-axis' do
-      allow(direction).to receive(:to_s).and_return('SOUTH')
+      allow(direction).to receive(:to_sym).and_return(:SOUTH)
       allow(direction).to receive(:to_a).and_return(['SOUTH'])
       robot.move
-      expect(robot.status).to eq [1,0,'SOUTH']
+      expect(robot.report).to eq "1,0,SOUTH"
     end 
   end
   context 'and facing east' do
     it 'should move the robot +1 on the x-axis' do
-      allow(direction).to receive(:to_s).and_return('EAST')
+      allow(direction).to receive(:to_sym).and_return(:EAST)
       allow(direction).to receive(:to_a).and_return(['EAST'])
       robot.move
-      expect(robot.status).to eq [2,1,'EAST']
+      expect(robot.report).to eq "2,1,EAST"
     end 
   end
 end

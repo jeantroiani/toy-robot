@@ -32,19 +32,19 @@ describe Robot do
       robot.place coordinate, direction
     end
 
-    context '#status' do
+    context '#report' do
       it 'asks for its location' do
         expect(coordinate).to receive(:to_a)
-        robot.status
+        robot.report
       end
 
       it 'asks for its direction' do
         expect(direction).to receive(:to_a)
-        robot.status
+        robot.report
       end
 
       it 'returns its current location and direction' do
-        expect(robot.status).to eq [1,2, "NORTH"]
+        expect(robot.report).to eq "1,2,NORTH"
       end
     end
 

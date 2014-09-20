@@ -7,12 +7,17 @@ describe 'Moving the robot' do
   let(:direction) { double :direction }
 
   before do
-    robot.place_at coordinate, direction
+    robot.place coordinate, direction
   end
 
   it 'should ask for the direction' do
     expect(direction).to receive(:to_s)
     robot.move
+  end
+
+  it 'should raise an error if robot is not placed' do
+    new_robot = Robot.new
+    expect{ new_robot.move }.to raise_error(RuntimeError)
   end
 
   context 'and facing north' do

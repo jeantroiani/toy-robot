@@ -16,6 +16,10 @@ class Direction
     self
   end
 
+  def to_a
+    [self.to_s]
+  end
+
   private
   def around_to direction
     self.class.const_get(direction.upcase)

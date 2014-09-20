@@ -27,4 +27,10 @@ describe Direction do
       expect(direction.to_s).to eq 'WEST'
     end
   end
+
+  context '#to_a' do
+    it 'should return an array of the direction' do
+      expect(direction.to_a).to eq ['NORTH']
+    end
+  end
 end

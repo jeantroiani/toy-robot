@@ -14,6 +14,10 @@ class Coordinate
     "#{x},#{y}"
   end
 
+  def to_a
+    [x, y]
+  end
+
   def x=(x)
     raise 'Out of Bounds' if is_out_of_bounds? x
     @x = x

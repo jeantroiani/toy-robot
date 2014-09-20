@@ -33,4 +33,10 @@ describe Coordinate do
     end
   end
 
+  context '#to_a' do
+    it 'should return an array of x and y coordinate' do
+      expect(coordinate.to_a).to eq [1,2]
+    end
+  end
+
 end

@@ -1,10 +1,13 @@
 class Robot
-  def initialize(coordinate)
+  def placed?
+    !@coordinate.nil?
+  end
+
+  def place_at coordinate
     @coordinate = coordinate
   end
 
-  def has_coordinate?
-    !@coordinate.nil?
+  def status
+    @coordinate.to_a
   end
-  
 end

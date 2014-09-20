@@ -5,9 +5,8 @@ class Coordinate
   attr_reader :x, :y
 
   def initialize(x, y)
-    raise 'Out of Bounds' if is_out_of_bounds?(x, y)
-    @x = x
-    @y = y
+    check_for_out_of_bounds? x, y
+    @x, @y = x, y
   end
 
   def to_s
@@ -19,21 +18,50 @@ class Coordinate
   end
 
   def x=(x)
-    raise 'Out of Bounds' if is_out_of_bounds? x
+    check_for_out_of_bounds? x
     @x = x
   end
 
   def y=(y)
-    raise 'Out of Bounds' if is_out_of_bounds? y
+    check_for_out_of_bounds? y
     @y = y
   end
 
+  def change_towards direction
+    axis, amount = MOVEMENT_MAP[direction.to_sym]
+    execute_movement_on axis, amount
+  end
+
   private
+  MOVEMENT_MAP = {
+    :NORTH => [:y, 1],
+    :SOUTH => [:y, -1],
+    :EAST => [:x, 1],
+    :WEST => [:x, -1]
+  }
+
+  def check_for_out_of_bounds?(*coordinates)
+    raise 'Out of Bounds' if is_out_of_bounds? *coordinates
+  end
+
   def is_out_of_bounds?(*coordinates)
     coordinates.any?{ |coordinate| is_invalid?(coordinate) }
   end
 
   def is_invalid?(coordinate)
     coordinate < MINIMUM || coordinate > MAXIMUM 
+  end
+
+  def execute_movement_on axis, amount
+    amount += current_value_of axis
+    self.send(setter_of(axis), amount)
+  end
+
+  def setter_of axis
+    (axis.to_s + "=").to_sym
+  end
+
+  def current_value_of axis
+    instance_variable_get("@#{axis}")
   end
 end

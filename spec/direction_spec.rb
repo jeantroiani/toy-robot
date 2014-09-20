@@ -33,4 +33,10 @@ describe Direction do
       expect(direction.to_a).to eq ['NORTH']
     end
   end
+
+  context '#to_sym' do
+    it 'should return the current direction as a symbol' do
+      expect(direction.to_sym).to eq :NORTH
+    end
+  end
 end

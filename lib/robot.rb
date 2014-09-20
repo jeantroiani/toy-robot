@@ -8,22 +8,14 @@ class Robot
     self
   end
 
-  def status
-    @coordinate.to_a + @direction.to_a
+  def report
+    check_if_robot_is_placed
+    coordinate_and_direction.join(',')
   end
 
   def move
     check_if_robot_is_placed
-    case direction_facing
-    when 'NORTH'
-      @coordinate.y += 1
-    when 'WEST'
-      @coordinate.x -= 1
-    when 'SOUTH'
-      @coordinate.y -= 1
-    when 'EAST'
-      @coordinate.x += 1
-    end
+    @coordinate.change_towards @direction
     self  
   end
 
@@ -38,8 +30,8 @@ class Robot
   end
 
   private
-  def direction_facing
-    @direction.to_s
+  def coordinate_and_direction
+    @coordinate.to_a + @direction.to_a
   end
 
   def check_if_robot_is_placed

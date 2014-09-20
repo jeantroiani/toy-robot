@@ -11,7 +11,7 @@ describe Coordinate do
     end
   end
 
-  context '#to_s' do
+  describe '#to_s' do
     it 'should display the coordainates' do
       expect(coordinate.to_s).to eq "1,2"
     end
@@ -33,7 +33,48 @@ describe Coordinate do
     end
   end
 
-  context '#to_a' do
+  describe '#move_towards' do
+    let(:direction) { double :direction }
+    it 'should ask for the direction' do
+      allow(coordinate).to receive(:execute_movement_on)
+      expect(direction).to receive(:to_sym)
+      coordinate.change_towards direction
+    end
+
+    context 'facing north' do
+      it 'should move the robot +1 on the y-axis' do
+        allow(direction).to receive(:to_sym).and_return(:NORTH)
+        coordinate.change_towards direction
+        expect(coordinate.to_a).to eq [1,3]
+      end
+    end
+
+    context 'facing east' do
+      it 'should move the robot +1 on the x-axis' do
+        allow(direction).to receive(:to_sym).and_return(:EAST)
+        coordinate.change_towards direction
+        expect(coordinate.to_a).to eq [2,2]
+      end
+    end
+
+    context 'facing south' do
+      it 'should move the robot -1 on the y-axis' do
+        allow(direction).to receive(:to_sym).and_return(:SOUTH)
+        coordinate.change_towards direction
+        expect(coordinate.to_a).to eq [1,1]
+      end
+    end
+
+    context 'facing west' do
+      it 'should move the robot -1 on the x-axis' do
+        allow(direction).to receive(:to_sym).and_return(:WEST)
+        coordinate.change_towards direction
+        expect(coordinate.to_a).to eq [0,2]
+      end
+    end
+  end
+
+  describe '#to_a' do
     it 'should return an array of x and y coordinate' do
       expect(coordinate.to_a).to eq [1,2]
     end

@@ -1,4 +1,7 @@
 # Toy Robot
+[![Code Climate](https://codeclimate.com/github/yoshdog/toy-robot/badges/gpa.svg)](https://codeclimate.com/github/yoshdog/toy-robot)
+[![Test Coverage](https://codeclimate.com/github/yoshdog/toy-robot/badges/coverage.svg)](https://codeclimate.com/github/yoshdog/toy-robot)
+
 ## Objectives
 * The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
 * There are no other obstructions on the table surface.
@@ -25,4 +28,26 @@ LEFT
 MOVE
 REPORT
 Output: 3,3,NORTH
+```
+
+### Development
+My domain model includes four classes: **Robot, Direction, Coordinate, Controller**
++ **Robot** Can be placed at a location, move forward, turn left and right and also report its status.
++ **Direction** Holds the current direction the robot is facing in. It can be turned right or left. The compass array holds information on the direction it is facing if it is turned left or right.
++ **Coordinate** Contains the coordinate of the robot. It has a setter method on the x and y axis so the position can be changed. It knows the boundaries of the surface and will thrown and error if the coordinate is out of bounds.
++ **Controller** This is parse the inputs from a file and then sends the correct commands to the robot.
+
+### How to set it up
+```sh
+git clone git@github.com:yoshdog/toy-robot.git
+cd toy-robot
+bundle
+```
+
+### How to run it
+
+### How to test it
+```sh
+cd toy-robot
+rspec
 ```

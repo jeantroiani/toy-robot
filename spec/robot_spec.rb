@@ -27,6 +27,9 @@ describe Robot do
       expect{ robot.move }.to raise_error(RuntimeError)
     end
 
+    it 'should raise an error if asked to report' do
+      expect{ robot.report }.to raise_error(RuntimeError)
+    end
   end
 
   context 'that is placed' do

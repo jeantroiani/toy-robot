@@ -5,7 +5,7 @@ class Coordinate
   attr_reader :x, :y
 
   def initialize(x, y)
-    raise 'Out of Bounds' if is_out_of_bounds?(x, y)
+    check_for_out_of_bounds? x, y
     @x, @y = x, y
   end
 
@@ -18,12 +18,12 @@ class Coordinate
   end
 
   def x=(x)
-    raise 'Out of Bounds' if is_out_of_bounds? x
+    check_for_out_of_bounds? x
     @x = x
   end
 
   def y=(y)
-    raise 'Out of Bounds' if is_out_of_bounds? y
+    check_for_out_of_bounds? y
     @y = y
   end
 
@@ -39,6 +39,10 @@ class Coordinate
     :EAST => [:x, 1],
     :WEST => [:x, -1]
   }
+
+  def check_for_out_of_bounds?(*coordinates)
+    raise 'Out of Bounds' if is_out_of_bounds? *coordinates
+  end
 
   def is_out_of_bounds?(*coordinates)
     coordinates.any?{ |coordinate| is_invalid?(coordinate) }

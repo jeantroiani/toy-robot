@@ -35,6 +35,7 @@ Output: 3,3,NORTH
 + 0,0 is the South-West corner.
 + the y-axis is north to south
 + the x-axis is east to west
++ In the command file, each new command is on a new line.
 
 ### My Solution
 My domain model includes four classes: **Robot, Direction, Coordinate, Controller**

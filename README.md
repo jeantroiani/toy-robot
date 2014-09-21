@@ -58,3 +58,8 @@ bundle
 cd toy-robot
 rspec
 ```
+
+### Refactor Steps
++ Coordinate and Direction initializers to accept a hash
++ Build hash from parameters
++ Controller#perform_action: Build a params list for the send command.

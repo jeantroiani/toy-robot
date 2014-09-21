@@ -4,7 +4,7 @@ class Controller
     @commands = []
   end
 
-  def perform_action robot, command_file, coordinate, direction
+  def process_commands robot, command_file, coordinate, direction
     parse command_file
     @commands.each do |command|
       method, params = command

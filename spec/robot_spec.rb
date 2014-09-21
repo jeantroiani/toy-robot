@@ -40,6 +40,9 @@ describe Robot do
     end
 
     context '#report' do
+      before do
+        allow(robot).to receive(:puts)
+      end
       it 'asks for its location' do
         expect(coordinate).to receive(:to_a)
         robot.report
@@ -51,7 +54,8 @@ describe Robot do
       end
 
       it 'returns its current location and direction' do
-        expect(robot.report).to eq "1,2,NORTH"
+        expect(robot).to receive(:puts).with("1,2,NORTH")
+        robot.report
       end
     end
 

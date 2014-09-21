@@ -10,7 +10,8 @@ class Robot
 
   def report
     check_if_robot_is_placed
-    coordinate_and_direction.join(',')
+    puts coordinate_and_direction.join(',')
+    self
   end
 
   def move

@@ -1,7 +1,7 @@
 class Direction
   def initialize(options)
     direction = options.fetch(:facing, :NORTH)
-    create_compass_from direction.upcase
+    compass_starts_on direction.upcase
   end
 
   def turn direction
@@ -30,7 +30,7 @@ class Direction
     self.class.const_get(direction.upcase)
   end
 
-  def create_compass_from direction
+  def compass_starts_on direction
     raise 'Incorrect direction' unless is_valid? direction
     @compass = VALID_DIRECTIONS.dup
     self.turn 'right' until the_same? direction

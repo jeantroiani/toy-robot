@@ -5,6 +5,7 @@ CodeClimate::TestReporter.start
 require 'coordinate'
 require 'robot'
 require 'direction'
+require 'controller'
 
 RSpec.configure do |config|
 

@@ -5,7 +5,7 @@ class Robot
 
   def place coordinate, direction
     @coordinate, @direction = coordinate, direction
-    self
+    nil
   end
 
   def report

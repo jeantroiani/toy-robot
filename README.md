@@ -35,6 +35,7 @@ Output: 3,3,NORTH
 + 0,0 is the South-West corner.
 + the y-axis is north to south
 + the x-axis is east to west
++ In the command file, each new command is on a new line.
 
 ### My Solution
 My domain model includes four classes: **Robot, Direction, Coordinate, Controller**
@@ -57,3 +58,8 @@ bundle
 cd toy-robot
 rspec
 ```
+
+### Refactor Steps
++ Coordinate and Direction initializers to accept a hash
++ Build hash from parameters
++ Controller#perform_action: Build a params list for the send command.

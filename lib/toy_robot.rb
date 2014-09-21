@@ -6,7 +6,6 @@ class ToyRobot
   end
   
   def run file_name
-    controller.process_commands robot, file_name
+    controller.process file_name, robot
   end
-  
 end

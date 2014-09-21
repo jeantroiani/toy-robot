@@ -17,7 +17,7 @@ describe ToyRobot do
 
   describe '#run' do
     it 'should tell the controller to process the file' do
-      expect(controller).to receive(:process_commands).with(robot, command_file)
+      expect(controller).to receive(:process).with(command_file, robot)
       toy_robot.run command_file
     end
   end

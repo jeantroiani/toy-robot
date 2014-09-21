@@ -3,7 +3,7 @@ require './files'
 
 filename = ARGV.first || 'commands.txt'
 
-toy_robot = ToyRobot.new(Robot.new(Coordinate, Direction), Controller.new)
+toy_robot = ToyRobot.new(Robot.new, Controller.new)
 begin
   toy_robot.run filename
 rescue Exception => e

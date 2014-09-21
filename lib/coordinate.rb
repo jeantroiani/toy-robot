@@ -27,7 +27,7 @@ class Coordinate
     @y = y
   end
 
-  def change_towards direction
+  def change_position_towards direction
     axis, amount = MOVEMENT_MAP[direction.to_sym]
     execute_change_on axis, amount
   end

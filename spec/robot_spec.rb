@@ -70,8 +70,8 @@ describe Robot do
     end
 
     context '#move' do
-      it 'should tell the coordinate to change_towards the direction' do
-        expect(coordinate).to receive(:change_towards).with(direction)
+      it 'should tell the coordinate to change_position_towards the direction' do
+        expect(coordinate).to receive(:change_position_towards).with(direction)
         robot.move
       end
     end

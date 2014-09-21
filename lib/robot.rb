@@ -15,7 +15,7 @@ class Robot
 
   def move
     check_if_robot_is_placed
-    @coordinate.change_towards @direction
+    @coordinate.change_position_towards @direction
     self  
   end
 

@@ -33,18 +33,18 @@ describe Coordinate do
     end
   end
 
-  describe '#change_towards' do
+  describe '#change_position_towards' do
     let(:direction) { double :direction }
     it 'should ask for the direction' do
       allow(coordinate).to receive(:execute_change_on)
       expect(direction).to receive(:to_sym)
-      coordinate.change_towards direction
+      coordinate.change_position_towards direction
     end
 
     context 'facing north' do
       it 'should move the robot +1 on the y-axis' do
         allow(direction).to receive(:to_sym).and_return(:NORTH)
-        coordinate.change_towards direction
+        coordinate.change_position_towards direction
         expect(coordinate.to_a).to eq [1,3]
       end
     end
@@ -52,7 +52,7 @@ describe Coordinate do
     context 'facing east' do
       it 'should move the robot +1 on the x-axis' do
         allow(direction).to receive(:to_sym).and_return(:EAST)
-        coordinate.change_towards direction
+        coordinate.change_position_towards direction
         expect(coordinate.to_a).to eq [2,2]
       end
     end
@@ -60,7 +60,7 @@ describe Coordinate do
     context 'facing south' do
       it 'should move the robot -1 on the y-axis' do
         allow(direction).to receive(:to_sym).and_return(:SOUTH)
-        coordinate.change_towards direction
+        coordinate.change_position_towards direction
         expect(coordinate.to_a).to eq [1,1]
       end
     end
@@ -68,7 +68,7 @@ describe Coordinate do
     context 'facing west' do
       it 'should move the robot -1 on the x-axis' do
         allow(direction).to receive(:to_sym).and_return(:WEST)
-        coordinate.change_towards direction
+        coordinate.change_position_towards direction
         expect(coordinate.to_a).to eq [0,2]
       end
     end

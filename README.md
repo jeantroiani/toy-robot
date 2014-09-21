@@ -52,6 +52,12 @@ bundle
 ```
 
 ### How to run it
+Subsitute commands.txt with any command file
+
+```sh
+cd toy-robot
+./bin/toy_robot commands.txt
+```
 
 ### How to test it
 ```sh

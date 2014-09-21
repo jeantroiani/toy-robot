@@ -38,7 +38,7 @@ Output: 3,3,NORTH
 + In the command file, each new command is on a new line.
 
 ### My Solution
-My domain model includes four classes: **Robot, Direction, Coordinate, Controller**
+My domain model includes five classes: **Robot, Direction, Coordinate, Controller, ToyRobot**
 + **Robot** Can be placed at a location, move forward, turn left and right and also report its status.
 + **Direction** Holds the current direction that the robot is facing in. It has a compass array which will hold the directions it will face if turned left or right.
 + **Coordinate** Contains the coordinate of the robot. It has a setter method on the x and y axis so the position can change. It knows the boundaries of the surface and will throw an error if the coordinate is out of bounds.

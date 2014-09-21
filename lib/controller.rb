@@ -4,7 +4,7 @@ class Controller
     @commands = []
   end
 
-  def process_commands robot, command_file
+  def process command_file, robot
     parse command_file
     @commands.each { |command| execute command, robot }
     nil

@@ -4,22 +4,9 @@ class Controller
     @commands = []
   end
 
-  def process_commands robot, command_file, coordinate, direction
+  def process_commands robot, command_file
     parse command_file
-    @commands.each do |command|
-      method, params = command
-      begin
-        if params.nil?
-          robot.send(method.downcase.to_sym)
-        else
-          robot.send(method.downcase.to_sym, 
-                     coordinate.new(params[0], params[1]),
-                     direction.new(params[2]))
-        end
-      rescue Exception => e
-        puts e.message
-      end
-    end
+    @commands.each { |command| execute command, robot }
     nil
   end
   
@@ -47,7 +34,27 @@ class Controller
   end
 
   def split_and_convert params
-    params.split(',').map {|param| param.match(/[0-9]/) ? param.to_i : param }
+    params.split(',').map {|param| is_numeric?(param) ? param.to_i : param }
   end
 
+  def is_numeric? string
+    string =~ /[0-9]/
+  end
+
+  def generate command
+    method, params = command
+    [formatted(method), params].flatten.compact
+  end
+
+  def formatted method
+    method.downcase.to_sym
+  end
+
+  def execute command, robot
+    begin
+      robot.send(*generate(command))
+    rescue Exception => e
+      puts e.message
+    end
+  end
 end

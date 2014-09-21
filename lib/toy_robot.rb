@@ -1,12 +1,12 @@
 class ToyRobot
-  attr_reader :robot, :controller, :coordinate_class, :direction_class
+  attr_reader :robot, :controller
 
-  def initialize(robot, controller, coordinate_class, direction_class)
-    @robot, @controller, @coordinate_class, @direction_class = robot, controller, coordinate_class, direction_class
+  def initialize(robot, controller)
+    @robot, @controller = robot, controller
   end
   
   def run file_name
-    controller.process_commands robot, file_name, coordinate_class, direction_class
+    controller.process_commands robot, file_name
   end
   
 end

@@ -1,5 +1,5 @@
 describe Coordinate do
-  let(:coordinate) { Coordinate.new(1,2) }
+  let(:coordinate) { Coordinate.new(x: 1, y: 2) }
   context '#initialize' do
     it 'should be created with x and y coordinates' do
       expect(coordinate.x).to eq 1
@@ -7,7 +7,7 @@ describe Coordinate do
     end
 
     it 'should throw an error if out of bounds' do
-      expect { Coordinate.new(0,5) }.to raise_error(RuntimeError)
+      expect { Coordinate.new(x: 0, y: 5) }.to raise_error(RuntimeError)
     end
   end
 

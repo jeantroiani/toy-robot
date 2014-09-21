@@ -1,18 +1,40 @@
 describe Robot do
-  let(:robot){ Robot.new }
+  let(:coordinate) { double :coordinate, to_a: [1,2] }
+  let(:direction) { double :direction, to_a: ["NORTH"] }
+  let(:coordinate_class) { double :class, new: coordinate }
+  let(:direction_class) { double :class, new: direction }
+  let(:robot){ Robot.new(coordinate_class, direction_class) }
 
   context '#initialize' do
     it 'should not be placed when created' do
       expect(robot).not_to be_placed
     end
+
+    it 'should have a coordinate class' do
+      expect(robot.coordinate_class).to eq coordinate_class
+    end
+
+    it 'should have a direction_class' do
+      expect(robot.direction_class).to eq direction_class
+    end
   end
 
   context 'that is not placed' do
-    it 'can be placed at a coordinate and direction' do
-      coordinate = double :coordinate
-      direction = double :direction
-      robot.place coordinate, direction
-      expect(robot).to be_placed
+    describe '#place' do
+      it 'should send a new message to the coordinate class' do
+        expect(coordinate_class).to receive(:new)
+        robot.place 1, 2, 'NORTH'
+      end
+
+      it 'should send a new message to the direction class' do
+        expect(direction_class).to receive(:new)
+        robot.place 1, 2, 'NORTH'
+      end
+
+      it 'can be placed' do
+        robot.place 1, 2, 'NORTH'
+        expect(robot).to be_placed
+      end
     end
 
     it 'should raise an error if asked to turn left' do
@@ -33,10 +55,9 @@ describe Robot do
   end
 
   context 'that is placed' do
-    let(:coordinate) { double :coordinate, to_a: [1,2] }
-    let(:direction) { double :direction, to_a: ["NORTH"] }
+
     before do
-      robot.place coordinate, direction
+      robot.place 1, 2, 'NORTH'
     end
 
     context '#report' do

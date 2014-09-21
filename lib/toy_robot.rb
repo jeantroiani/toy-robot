@@ -1,7 +1,10 @@
+require_relative 'robot'
+require_relative 'controller'
+
 class ToyRobot
   attr_reader :robot, :controller
 
-  def initialize(robot, controller)
+  def initialize(robot = Robot.new, controller = Controller.new)
     @robot, @controller = robot, controller
   end
   

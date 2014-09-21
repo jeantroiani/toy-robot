@@ -6,6 +6,7 @@ require 'coordinate'
 require 'robot'
 require 'direction'
 require 'controller'
+require 'toy_robot'
 
 RSpec.configure do |config|
 

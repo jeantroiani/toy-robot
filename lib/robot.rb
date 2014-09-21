@@ -10,12 +10,13 @@ class Robot
 
   def report
     check_if_robot_is_placed
-    coordinate_and_direction.join(',')
+    puts coordinate_and_direction.join(',')
+    self
   end
 
   def move
     check_if_robot_is_placed
-    @coordinate.change_towards @direction
+    @coordinate.change_position_towards @direction
     self  
   end
 

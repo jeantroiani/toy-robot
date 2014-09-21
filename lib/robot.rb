@@ -5,12 +5,12 @@ class Robot
 
   def place coordinate, direction
     @coordinate, @direction = coordinate, direction
-    self
+    nil
   end
 
   def report
     check_if_robot_is_placed
-    coordinate_and_direction.join(',')
+    puts coordinate_and_direction.join(',')
   end
 
   def move

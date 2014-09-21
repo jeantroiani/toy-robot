@@ -53,7 +53,7 @@ bundle
 ```
 
 ### How to run it
-Subsitute commands.txt with any command file
+Subsitute commands.txt with any file which has the commands
 
 ```sh
 cd toy-robot

@@ -43,6 +43,7 @@ My domain model includes four classes: **Robot, Direction, Coordinate, Controlle
 + **Direction** Holds the current direction that the robot is facing in. It has a compass array which will hold the directions it will face if turned left or right.
 + **Coordinate** Contains the coordinate of the robot. It has a setter method on the x and y axis so the position can change. It knows the boundaries of the surface and will throw an error if the coordinate is out of bounds.
 + **Controller** Will parse the inputs from a file and then sends the correct commands to the robot.
++ **ToyRobot** Knows all the classes and runs the application.
 
 ### How to set it up
 ```sh
@@ -66,6 +67,6 @@ rspec
 ```
 
 ### Refactor Steps
-+ Coordinate and Direction initializers to accept a hash
 + Build hash from parameters
 + Controller#perform_action: Build a params list for the send command.
++ robot to build own coordinate and direction

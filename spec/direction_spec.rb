@@ -1,5 +1,5 @@
 describe Direction do
-  let(:direction) { Direction.new('NORTH') }
+  let(:direction) { Direction.new(facing: 'NORTH') }
 
   context '#initialize' do
     it 'should be created with a valid direction' do
@@ -7,12 +7,12 @@ describe Direction do
     end
 
     it 'first element of compass list should equal to the parameter passed in' do
-      direction = Direction.new('WEST')
+      direction = Direction.new(facing: 'WEST')
       expect(direction.to_s).to eq 'WEST'
     end
 
     it 'returns an error if not valid direction' do
-      expect{ Direction.new('blue') }.to raise_error(RuntimeError)
+      expect{ Direction.new(facing: 'blue') }.to raise_error(RuntimeError)
     end
   end
 

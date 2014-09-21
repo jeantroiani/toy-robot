@@ -1,5 +1,6 @@
 class Direction
-  def initialize(direction)
+  def initialize(options)
+    direction = options.fetch(:facing, :NORTH)
     create_compass_from direction.upcase
   end
 

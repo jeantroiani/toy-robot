@@ -13,8 +13,8 @@ class Controller
           robot.send(method.downcase.to_sym)
         else
           robot.send(method.downcase.to_sym, 
-                     coordinate.new(params[0], params[1]),
-                     direction.new(params[2]))
+                     coordinate.new(x: params[0], y: params[1]),
+                     direction.new(facing: params[2]))
         end
       rescue Exception => e
         puts e.message

@@ -4,9 +4,10 @@ class Coordinate
 
   attr_reader :x, :y
 
-  def initialize(x, y)
-    check_for_out_of_bounds? x, y
-    @x, @y = x, y
+  def initialize(options)
+    @x = options.fetch(:x, 0)
+    @y = options.fetch(:y, 0)
+    check_for_out_of_bounds? @x, @y
   end
 
   def to_s

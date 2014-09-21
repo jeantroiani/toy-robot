@@ -30,12 +30,18 @@ REPORT
 Output: 3,3,NORTH
 ```
 
-### Development
+### Assumptions
++ 5 x 5 grid, with the position starting at 0 and ending at 4.
++ 0,0 is the South-West corner.
++ the y-axis is north to south
++ the x-axis is east to west
+
+### My Solution
 My domain model includes four classes: **Robot, Direction, Coordinate, Controller**
 + **Robot** Can be placed at a location, move forward, turn left and right and also report its status.
-+ **Direction** Holds the current direction the robot is facing in. It can be turned right or left. The compass array holds information on the direction it is facing if it is turned left or right.
-+ **Coordinate** Contains the coordinate of the robot. It has a setter method on the x and y axis so the position can be changed. It knows the boundaries of the surface and will thrown and error if the coordinate is out of bounds.
-+ **Controller** This is parse the inputs from a file and then sends the correct commands to the robot.
++ **Direction** Holds the current direction that the robot is facing in. It has a compass array which will hold the directions it will face if turned left or right.
++ **Coordinate** Contains the coordinate of the robot. It has a setter method on the x and y axis so the position can change. It knows the boundaries of the surface and will throw an error if the coordinate is out of bounds.
++ **Controller** Will parse the inputs from a file and then sends the correct commands to the robot.
 
 ### How to set it up
 ```sh

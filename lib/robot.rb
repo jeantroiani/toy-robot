@@ -22,11 +22,13 @@ class Robot
   def left
     check_if_robot_is_placed
     @direction.turn 'left'
+    self
   end
 
   def right
     check_if_robot_is_placed
     @direction.turn 'right'
+    self
   end
 
   private

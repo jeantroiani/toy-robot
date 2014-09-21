@@ -4,24 +4,9 @@ class Controller
     @commands = []
   end
 
-  def process_commands robot, command_file, coordinate, direction
+  def process_commands robot, command_file
     parse command_file
-    @commands.each do |command|
-      method, params = command
-      params_hash = generate_hash_from params
-      begin
-        puts generate_command_from method, params
-        if params.nil?
-          robot.send(method.downcase.to_sym)
-        else
-          robot.send(method.downcase.to_sym, 
-                     coordinate.new(params_hash),
-                     direction.new(params_hash))
-        end
-      rescue Exception => e
-        puts e.message
-      end
-    end
+    @commands.each { |command| execute command, robot }
     nil
   end
   
@@ -53,20 +38,23 @@ class Controller
   end
 
   def is_numeric? string
-    string.match(/[0-9]/)
+    string =~ /[0-9]/
   end
 
-  def generate_hash_from params
-    params.nil? ? nil : {x: params[0], y: params[1], facing: params[2]}
-  end
-
-  def generate_command_from method, params
-    [formatted(method), params].compact
+  def generate command
+    method, params = command
+    [formatted(method), params].flatten.compact
   end
 
   def formatted method
     method.downcase.to_sym
   end
+
+  def execute command, robot
+    begin
+      robot.send(*generate(command))
+    rescue Exception => e
+      puts e.message
+    end
+  end
 end
-__END__
-[method,params].compact

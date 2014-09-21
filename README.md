@@ -65,8 +65,3 @@ cd toy-robot
 cd toy-robot
 rspec
 ```
-
-### Refactor Steps
-+ Build hash from parameters
-+ Controller#perform_action: Build a params list for the send command.
-+ robot to build own coordinate and direction

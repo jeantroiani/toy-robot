@@ -1,10 +1,20 @@
+require_relative 'coordinate'
+require_relative 'direction'
+
 class Robot
+  attr_reader :coordinate_class, :direction_class
+
+  def initialize(coordinate_class = Coordinate, direction_class = Direction)
+    @coordinate_class, @direction_class = coordinate_class, direction_class
+  end
+
   def placed?
     !@coordinate.nil?
   end
 
-  def place coordinate, direction
-    @coordinate, @direction = coordinate, direction
+  def place x, y, facing
+    @coordinate = coordinate_class.new(x: x, y: y)
+    @direction = direction_class.new(facing: facing)
     nil
   end
 

@@ -8,6 +8,7 @@ class Controller
     parse command_file
     @commands.each do |command|
       method, params = command
+    begin
       if params.nil?
         robot.send(method.downcase.to_sym)
       else
@@ -15,6 +16,9 @@ class Controller
                    coordinate.new(params[0], params[1]),
                    direction.new(params[2]))
       end
+    rescue Exception => e
+      puts e.message
+    end
     end
     nil
   end

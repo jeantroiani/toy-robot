@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+require './files'
+
+filename = ARGV.first || 'commands.txt'
+
+toy_robot = ToyRobot.new(Robot.new, Controller.new, Coordinate, Direction)
+begin
+  toy_robot.run filename
+rescue Exception => e
+  puts e.message
+end

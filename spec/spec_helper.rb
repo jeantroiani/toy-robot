@@ -5,6 +5,7 @@ CodeClimate::TestReporter.start
 require 'coordinate'
 require 'robot'
 require 'direction'
+require 'file_parser'
 require 'controller'
 require 'toy_robot'
 

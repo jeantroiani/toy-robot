@@ -38,12 +38,13 @@ Output: 3,3,NORTH
 + In the command file, each new command is on a new line.
 
 ### My Solution
-My domain model includes five classes: **Robot, Direction, Coordinate, Controller, ToyRobot**
-+ **Robot** Can be placed at a location, move forward, turn left and right and also report its status.
-+ **Direction** Holds the current direction that the robot is facing in. It has a compass array which will hold the directions it will face if turned left or right.
-+ **Coordinate** Contains the coordinate of the robot. It has a setter method on the x and y axis so the position can change. It knows the boundaries of the surface and will throw an error if the coordinate is out of bounds.
-+ **Controller** Will parse the inputs from a file and then sends the correct commands to the robot.
-+ **ToyRobot** Knows all the classes and runs the application.
+My domain model includes six classes: **Robot, Direction, Coordinate, FileParser, Controller, ToyRobot**
++ **Robot** can be placed at a location, move forward, turn left and right and also report its status.
++ **Direction** holds the current direction that the robot is facing in. It has a compass array which will hold the directions it will face if turned left or right.
++ **Coordinate** contains the coordinate of the robot. It has a setter method on the x and y axis so the position can change. It knows the boundaries of the surface and will throw an error if the coordinate is out of bounds.
++ **FileParser** will parse the commands from the file and return an array of commands.
++ **Controller** sends the correct commands to the robot based on the commands array.
++ **ToyRobot** knows all the classes and runs the application.
 
 ### How to set it up
 ```sh

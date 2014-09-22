@@ -46,7 +46,7 @@ My domain model includes six classes: **Robot, Direction, Coordinate, FileParser
 + **Controller** sends the correct commands to the robot based on the commands array.
 + **ToyRobot** knows all the classes and runs the application.
 
-### Versions
+### Requirements
 + Ruby 2.0 or greater
 + Bundler
 + RSpec 3.0 or greater

@@ -17,8 +17,7 @@ class FileParser
   def self.parse_params_for commands
     commands.map! do |command|
       method, params = command
-      params = split_and_convert params unless params.nil?
-      [method, params]
+      [method, format(params)]
     end
   end
 
@@ -28,5 +27,9 @@ class FileParser
 
   def self.is_numeric? string
     string =~ /\d/
-  end  
+  end
+
+  def self.format params
+    split_and_convert params unless params.nil?
+  end
 end

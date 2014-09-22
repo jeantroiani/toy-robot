@@ -36,7 +36,7 @@ describe Coordinate do
   describe '#change_position_towards' do
     let(:direction) { double :direction }
     it 'should ask for the direction' do
-      allow(coordinate).to receive(:execute_change_on)
+      allow(coordinate).to receive(:position_change_on)
       expect(direction).to receive(:to_sym)
       coordinate.change_position_towards direction
     end

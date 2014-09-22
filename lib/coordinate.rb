@@ -30,7 +30,7 @@ class Coordinate
 
   def change_position_towards direction
     axis, amount = MOVEMENT_MAP[direction.to_sym]
-    execute_change_on axis, amount
+    position_change_on axis, amount
   end
 
   private
@@ -53,7 +53,7 @@ class Coordinate
     coordinate < MINIMUM || coordinate > MAXIMUM 
   end
 
-  def execute_change_on axis, amount
+  def position_change_on axis, amount
     amount += current_value_of axis
     self.send(setter_of(axis), amount)
   end

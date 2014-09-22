@@ -7,7 +7,7 @@ class Coordinate
   def initialize(options)
     @x = options.fetch(:x, 0)
     @y = options.fetch(:y, 0)
-    check_for_out_of_bounds? @x, @y
+    check_for_out_of_bounds @x, @y
   end
 
   def to_s
@@ -19,12 +19,12 @@ class Coordinate
   end
 
   def x=(x)
-    check_for_out_of_bounds? x
+    check_for_out_of_bounds x
     @x = x
   end
 
   def y=(y)
-    check_for_out_of_bounds? y
+    check_for_out_of_bounds y
     @y = y
   end
 
@@ -41,7 +41,7 @@ class Coordinate
     :WEST => [:x, -1]
   }
 
-  def check_for_out_of_bounds?(*coordinates)
+  def check_for_out_of_bounds(*coordinates)
     raise 'Out of Bounds' if is_out_of_bounds? *coordinates
   end
 

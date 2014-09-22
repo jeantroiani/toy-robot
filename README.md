@@ -46,6 +46,11 @@ My domain model includes six classes: **Robot, Direction, Coordinate, FileParser
 + **Controller** sends the correct commands to the robot based on the commands array.
 + **ToyRobot** knows all the classes and runs the application.
 
+### Versions
++ Ruby 2.0 or greater
++ Bundler
++ RSpec 3.0 or greater
+
 ### How to set it up
 ```sh
 git clone git@github.com:yoshdog/toy-robot.git

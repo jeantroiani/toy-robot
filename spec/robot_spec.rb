@@ -41,7 +41,7 @@ describe Robot do
       expect{ robot.left }.to raise_error(RuntimeError)
     end
 
-    it 'should raise an error if asked to turn left' do
+    it 'should raise an error if asked to turn right' do
       expect{ robot.right }.to raise_error(RuntimeError)
     end
 

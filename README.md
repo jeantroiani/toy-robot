@@ -54,7 +54,7 @@ The main considerations for my solution was:
 
 I tried to apply the SOLID princples in designing my solution. Each class has a single responsibilty. It also applies the Dependency Invesion/Injection principle. 
 
-The solution however fails the Open-Closed principle in that I cannot extend the solution for any new commands the robot might have in the future. I think it should have a new Command class and each new command (left, right, move, place) will inherit from it. Then I will need to have a Factory Method which will create the correct command object based on the what the file parser returns. I am currently reading about design patterns, so hopefully I can implement this soon.
+The solution however fails the Open-Closed principle in that I cannot extend without modifying the solution for any new commands the robot might have in the future. I think it should have a new Command class and each new command (left, right, move, place) will inherit from it. Then I will need to have a Factory Method which will create the correct command object based on the what the file parser returns. I am currently reading about design patterns, so hopefully I can implement this soon.
 
 ### Requirements
 + Ruby 2.0 or greater

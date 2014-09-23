@@ -35,16 +35,16 @@ class Direction
     @compass = VALID_DIRECTIONS.dup
     self.turn 'right' until the_same? direction
   end
+  
+  def current_direction
+    @compass.first
+  end
 
   def the_same? direction 
-    @compass.first == direction.to_sym
+    current_direction == direction.to_sym
   end
 
   def is_valid? direction
     VALID_DIRECTIONS.any?{ |bearing| bearing == direction.to_sym }
-  end
-
-  def current_direction
-    @compass.first
   end
 end

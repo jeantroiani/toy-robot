@@ -48,11 +48,11 @@ My domain model includes six classes: **Robot, Direction, Coordinate, FileParser
 
 ### Thoughts
 The main considerations for my solution was:
-+ Test Driven Development
++ Test Driven Development (London Style)
 + Code Readability
 + Apply SOLID principles (see thoughts below)
 
-I tried to apply the SOLID princples in designing my solution. Each class has a single responsibilty. It also applies the Dependency Invesion/Injection principle. 
+I tried to apply the SOLID principles in designing my solution. Each class has a single responsibilty. It also applies the Dependency Invesion/Injection principle. 
 
 The solution however fails the Open-Closed principle in that I cannot extend for any new commands the robot might have in the future, without modifying the controller & coordinate class. I think it should have a new Command class and each new command (left, right, move, place) will inherit from it. Then I will need to have a Factory Method which will create the correct command object based on the what the file parser returns. I am currently reading about design patterns, so hopefully I can implement this soon.
 

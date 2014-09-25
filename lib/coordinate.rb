@@ -59,7 +59,7 @@ class Coordinate
   end
 
   def setter_of axis
-    (axis.to_s + "=").to_sym
+    "#{axis}=".to_sym
   end
 
   def current_value_of axis

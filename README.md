@@ -48,7 +48,7 @@ My domain model includes six classes: **Robot, Direction, Coordinate, FileParser
 
 ### Thoughts
 The main considerations for my solution was:
-+ Test Driven Development (London Style)
++ Test Driven Development
 + Code Readability
 + Apply SOLID principles (see thoughts below)
 
